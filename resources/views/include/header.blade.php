@@ -79,7 +79,116 @@
                 padding-bottom: 20px;
             }
         }
+
+        .menu-drawer {
+    transform: translateX(-100%); /* Initially hidden off-screen */
+    visibility: hidden;
+    transition: transform 0.3s ease, visibility 0.3s ease;
+}
+
+.menu-drawer.open {
+    transform: translateX(0%);
+    visibility: visible;
+}
+
+.pagination {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.pagination-list {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pagination__link {
+    display: inline-block;
+    padding: 10px 14px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    color: #333;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.pagination__link:hover {
+    background-color: #000000;
+    color: #fff;
+    border-color: #0000;
+}
+
+.pagination--current .pagination__link {
+    background-color: #000000;
+    color: #fff;
+    border-color: #000000;
+    font-weight: bold;
+    cursor: default;
+}
+
+.pagination__link--disabled {
+    background-color: #121212;
+    color: #ffffff;
+    border: 1px solid #ddd;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .pagination {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .pagination-list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .pagination-controls {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .pagination__link {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+
     </style>
+
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.querySelector(".header__icon");
+    const menuDrawer = document.querySelector(".menu-drawer");
+
+    menuButton.addEventListener("click", function () {
+        menuDrawer.classList.toggle("open");
+    });
+});
+
+</script>
+
     <script src="{{ asset('css/cart-notification.js?v=133508293167896966491739714000')}}" defer="defer"></script>
     <sticky-header data-sticky-type="on-scroll-up" class="header-wrapper color-scheme-1 gradient header-wrapper--border-bottom">
         <header class="header header--middle-left header--mobile-center page-width header--has-menu header--has-account">
@@ -104,184 +213,61 @@
                                 <nav class="menu-drawer__navigation">
                                     <ul class="menu-drawer__menu has-submenu list-menu" role="list">
                                         <li>
-                                            <a id="HeaderDrawer-home" href="/" class="menu-drawer__menu-item list-menu__item link link--text focus-inset menu-drawer__menu-item--active" aria-current="page">
-                                                Home
+                                            <a id="HeaderDrawer-home" href="{{ route('home') }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset menu-drawer__menu-item--active" aria-current="page">
+                                                হোম
                                             </a>
                                         </li>
                                         <li>
-                                            <a id="HeaderDrawer-shop" href="/collections/all" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">
-                                                Shop
+                                            <a id="HeaderDrawer-shop" href="{{ route('shop') }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">
+                                                শপ
                                             </a>
                                         </li>
                                         <li>
-                                            <a id="HeaderDrawer-contact" href="/pages/contact" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">
-                                                Contact
+                                            <a id="HeaderDrawer-contact" href="{{ route('contact') }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">
+                                                যোগাযোগ
                                             </a>
                                         </li>
                                     </ul>
-                                </nav>
-                                <div class="menu-drawer__utility-links">
-                                    <a href="https://shopify.com/68175364233/account?locale=en&region_country=BD" class="menu-drawer__account link focus-inset h5 medium-hide large-up-hide" rel="nofollow">
-                                        <account-icon>
-                                            <span class="svg-wrapper">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-account" viewBox="0 0 18 19">
-                                                    <path
-                                                        fill="currentColor"
-                                                        fill-rule="evenodd"
-                                                        d="M6 4.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-4a4 4 0 1 0 0 8 4 4 0 0 0 0-8m5.58 12.15c1.12.82 1.83 2.24 1.91 4.85H1.51c.08-2.6.79-4.03 1.9-4.85C4.66 11.75 6.5 11.5 9 11.5s4.35.26 5.58 1.15M9 10.5c-2.5 0-4.65.24-6.17 1.35C1.27 12.98.5 14.93.5 18v.5h17V18c0-3.07-.77-5.02-2.33-6.15-1.52-1.1-3.67-1.35-6.17-1.35"
-                                                        clip-rule="evenodd"
-                                                    />
-                                                </svg>
-                                            </span>
-                                        </account-icon>
-                                        Account
-                                    </a>
-                                    <div class="menu-drawer__localization header-localization"></div>
-                                    <ul class="list list-social list-unstyled" role="list"></ul>
-                                </div>
+                                </nav>                                
                             </div>
                         </div>
                     </div>
                 </details>
             </header-drawer>
             <h1 class="header__heading">
-                <a href="/" class="header__heading-link link link--text focus-inset"><span class="h2">Qualiti Fashion</span></a>
+                <a href="/" class="header__heading-link link link--text focus-inset"><span class="h2">{{get_option('sitename','')}} Fashion</span></a>
             </h1>
 
             <nav class="header__inline-menu">
                 <ul class="list-menu list-menu--inline" role="list">
                     <li>
-                        <a id="HeaderMenu-home" href="/" class="header__menu-item list-menu__item link link--text focus-inset" aria-current="page">
-                            <span class="header__active-menu-item">Home</span>
+                        <a id="HeaderMenu-home" href="{{ route('home') }}" class="header__menu-item list-menu__item link link--text focus-inset" aria-current="page">
+                            <span class="{{ request()->is('/') ? 'header__active-menu-item' : '' }}">
+                                হোম
+                            </span>
                         </a>
                     </li>
                     <li>
-                        <a id="HeaderMenu-shop" href="/collections/all" class="header__menu-item list-menu__item link link--text focus-inset">
-                            <span>Shop</span>
+                        <a id="HeaderMenu-shop" href="{{ route('shop') }}" class="header__menu-item list-menu__item link link--text focus-inset">
+                            <span class="{{ request()->is('shop') ? 'header__active-menu-item' : '' }}">
+                                শপ
+                            </span>
                         </a>
                     </li>
                     <li>
-                        <a id="HeaderMenu-contact" href="/pages/contact" class="header__menu-item list-menu__item link link--text focus-inset">
-                            <span>Contact</span>
+                        <a id="HeaderMenu-contact" href="{{ route('contact') }}" class="header__menu-item list-menu__item link link--text focus-inset">
+                            <span class="{{ request()->is('contact') ? 'header__active-menu-item' : '' }}">
+                                যোগাযোগ</span>
                         </a>
                     </li>
                 </ul>
             </nav>
+            
 
             <div class="header__icons header__icons--localization header-localization">
                 <div class="desktop-localization-wrapper"></div>
 
-                <details-modal class="header__search">
-                    <details>
-                        <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="Search">
-                            <span>
-                                <span class="svg-wrapper">
-                                    <svg fill="none" class="icon icon-search" viewBox="0 0 18 19">
-                                        <path
-                                            fill="currentColor"
-                                            fill-rule="evenodd"
-                                            d="M11.03 11.68A5.784 5.784 0 1 1 2.85 3.5a5.784 5.784 0 0 1 8.18 8.18m.26 1.12a6.78 6.78 0 1 1 .72-.7l5.4 5.4a.5.5 0 1 1-.71.7z"
-                                            clip-rule="evenodd"
-                                        />
-                                    </svg>
-                                </span>
-                                <span class="svg-wrapper header__icon-close">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-close" viewBox="0 0 18 17">
-                                        <path
-                                            fill="currentColor"
-                                            d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z"
-                                        />
-                                    </svg>
-                                </span>
-                            </span>
-                        </summary>
-                        <div class="search-modal modal__content gradient" role="dialog" aria-modal="true" aria-label="Search">
-                            <div class="modal-overlay"></div>
-                            <div class="search-modal__content search-modal__content-bottom" tabindex="-1">
-                                <predictive-search class="search-modal__form" data-loading-text="Loading...">
-                                    <form action="/search" method="get" role="search" class="search search-modal__form">
-                                        <div class="field">
-                                            <input
-                                                class="search__input field__input"
-                                                id="Search-In-Modal"
-                                                type="search"
-                                                name="q"
-                                                value=""
-                                                placeholder="Search"
-                                                role="combobox"
-                                                aria-expanded="false"
-                                                aria-owns="predictive-search-results"
-                                                aria-controls="predictive-search-results"
-                                                aria-haspopup="listbox"
-                                                aria-autocomplete="list"
-                                                autocorrect="off"
-                                                autocomplete="off"
-                                                autocapitalize="off"
-                                                spellcheck="false"
-                                            />
-                                            <label class="field__label" for="Search-In-Modal">Search</label>
-                                            <input type="hidden" name="options[prefix]" value="last" />
-                                            <button type="reset" class="reset__button field__button hidden" aria-label="Clear search term">
-                                                <span class="svg-wrapper">
-                                                    <svg fill="none" stroke="currentColor" class="icon icon-close" viewBox="0 0 18 18">
-                                                        <circle cx="9" cy="9" r="8.5" stroke-opacity=".2" />
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.83 11.83 6.172 6.17M6.229 11.885l5.544-5.77" />
-                                                    </svg>
-                                                </span>
-                                            </button>
-                                            <button class="search__button field__button" aria-label="Search">
-                                                <span class="svg-wrapper">
-                                                    <svg fill="none" class="icon icon-search" viewBox="0 0 18 19">
-                                                        <path
-                                                            fill="currentColor"
-                                                            fill-rule="evenodd"
-                                                            d="M11.03 11.68A5.784 5.784 0 1 1 2.85 3.5a5.784 5.784 0 0 1 8.18 8.18m.26 1.12a6.78 6.78 0 1 1 .72-.7l5.4 5.4a.5.5 0 1 1-.71.7z"
-                                                            clip-rule="evenodd"
-                                                        />
-                                                    </svg>
-                                                </span>
-                                            </button>
-                                        </div>
-                                        <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
-                                            <div class="predictive-search__loading-state">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66"><circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path" /></svg>
-                                            </div>
-                                        </div>
-
-                                        <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
-                                    </form>
-                                </predictive-search>
-                                <button type="button" class="search-modal__close-button modal__close-button link link--text focus-inset" aria-label="Close">
-                                    <span class="svg-wrapper">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-close" viewBox="0 0 18 17">
-                                            <path
-                                                fill="currentColor"
-                                                d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z"
-                                            />
-                                        </svg>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </details>
-                </details-modal>
-
-                <a href="https://shopify.com/68175364233/account?locale=en&region_country=BD" class="header__icon header__icon--account link focus-inset small-hide" rel="nofollow">
-                    <account-icon>
-                        <span class="svg-wrapper">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-account" viewBox="0 0 18 19">
-                                <path
-                                    fill="currentColor"
-                                    fill-rule="evenodd"
-                                    d="M6 4.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-4a4 4 0 1 0 0 8 4 4 0 0 0 0-8m5.58 12.15c1.12.82 1.83 2.24 1.91 4.85H1.51c.08-2.6.79-4.03 1.9-4.85C4.66 11.75 6.5 11.5 9 11.5s4.35.26 5.58 1.15M9 10.5c-2.5 0-4.65.24-6.17 1.35C1.27 12.98.5 14.93.5 18v.5h17V18c0-3.07-.77-5.02-2.33-6.15-1.52-1.1-3.67-1.35-6.17-1.35"
-                                    clip-rule="evenodd"
-                                />
-                            </svg>
-                        </span>
-                    </account-icon>
-                    <span class="visually-hidden">Account</span>
-                </a>
-                <a href="/cart" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+                <a href="{{ route('cart') }} " class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
                     <span class="svg-wrapper">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-cart" viewBox="0 0 40 40">
                             <path
@@ -293,7 +279,15 @@
                     </span>
 
                     <span class="visually-hidden">Cart</span>
-                    <div class="cart-count-bubble"><span aria-hidden="true">1</span><span class="visually-hidden">1 item</span></div>
+                    <div class="cart-count-bubble">
+                        @if(session()->has('cart'))
+                            <span aria-hidden="true">{{ count(session()->get('cart')) }}</span>
+                            <span class="visually-hidden">{{ count(session()->get('cart')) }} items</span>
+                        @else
+                            <span aria-hidden="true">0</span>
+                            <span class="visually-hidden">0 items</span>
+                        @endif
+                    </div>
                 </a>
             </div>
         </header>
@@ -328,8 +322,8 @@
                 <div id="cart-notification-product" class="cart-notification-product"></div>
                 <div class="cart-notification__links">
                     <a href="/cart" id="cart-notification-button" class="button button--secondary button--full-width">View cart</a>
-                    <form action="/cart" method="post" id="cart-notification-form">
-                        <button class="button button--primary button--full-width" name="checkout">
+                    <form action=" {{route('cart')  }} " method="post" id="cart-notification-form">
+                        <button class="button button--primary button--full-width" type="submit" name="checkout">
                             Check out
                         </button>
                     </form>
@@ -344,28 +338,5 @@
         }
     </style>
 
-    <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "Organization",
-            "name": "Qualiti Fashion",
-
-            "sameAs": ["", "", "", "", "", "", "", "", ""],
-            "url": "https:\/\/qualitifashion.com"
-        }
-    </script>
-    <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "WebSite",
-            "name": "Qualiti Fashion",
-            "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https:\/\/qualitifashion.com\/search?q={search_term_string}",
-                "query-input": "required name=search_term_string"
-            },
-            "url": "https:\/\/qualitifashion.com"
-        }
-    </script>
 </div>
 <!-- END sections: header-group -->

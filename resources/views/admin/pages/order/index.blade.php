@@ -44,7 +44,7 @@
                                     <tr>
                                         <th scope="col">Name</th>
                                         <th scope="col">Phone</th>
-                                        <th scope="col">Total</th>
+                                        <th scope="col">Total Price</th>
                                         <th scope="col">City</th>
                                         <th scope="col">Add Date</th>
                                         <th scope="col">Add time</th>
@@ -63,8 +63,9 @@
                                     <tr>
                                         <td>{{$order->name}}</td>
                                         <td>{{$order->phone}}</td>
-                                        <td>{{$order->total}}</td>
+                                          <td>{{$order->total}}</td>
                                         <td>{{$order->city}}</td>
+                                      
                                         <td>{{date('d M Y',strtotime($order->created_at))}}
                                         </td>
                                         <td>{{$order->created_at->diffForHumans()}}</td>

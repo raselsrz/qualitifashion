@@ -4,6 +4,9 @@
 
 @include('include.header')
 
+@php
+$colors = json_decode($product->slider_data, true) ?? [];
+@endphp
 
 
         <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
@@ -16,16 +19,16 @@
                     data-update-url="true"
                     data-url="/products/premium-micro-stich-panjabi"
                 >
-                    <link href="//qualitifashion.com/cdn/shop/t/1/assets/section-main-product.css?v=161818056142182136911739714003" rel="stylesheet" type="text/css" media="all" />
-                    <link href="//qualitifashion.com/cdn/shop/t/1/assets/component-accordion.css?v=7971072480289620591739714001" rel="stylesheet" type="text/css" media="all" />
-                    <link href="//qualitifashion.com/cdn/shop/t/1/assets/component-price.css?v=70172745017360139101739714001" rel="stylesheet" type="text/css" media="all" />
-                    <link href="//qualitifashion.com/cdn/shop/t/1/assets/component-slider.css?v=14039311878856620671739714001" rel="stylesheet" type="text/css" media="all" />
-                    <link href="//qualitifashion.com/cdn/shop/t/1/assets/component-rating.css?v=179577762467860590411739714001" rel="stylesheet" type="text/css" media="all" />
-                    <link href="//qualitifashion.com/cdn/shop/t/1/assets/component-deferred-media.css?v=14096082462203297471739714001" rel="stylesheet" type="text/css" media="all" />
+                    <link href="{{asset('css/section-main-product.css?v=161818056142182136911739714003')}}" rel="stylesheet" type="text/css" media="all" />
+                    <link href="{{asset('css/component-accordion.css?v=7971072480289620591739714001')}}" rel="stylesheet" type="text/css" media="all" />
+                    <link href="{{asset('css/component-price.css?v=70172745017360139101739714001')}}" rel="stylesheet" type="text/css" media="all" />
+                    <link href="{{asset('css/component-slider.css?v=14039311878856620671739714001')}}" rel="stylesheet" type="text/css" media="all" />
+                    <link href="{{asset('css/component-rating.css?v=179577762467860590411739714001')}}" rel="stylesheet" type="text/css" media="all" />
+                    <link href="{{asset('css/component-deferred-media.css?v=14096082462203297471739714001')}}" rel="stylesheet" type="text/css" media="all" />
 
-                    <link href="//qualitifashion.com/cdn/shop/t/1/assets/component-product-variant-picker.css?v=101198305663325844211739714001" rel="stylesheet" type="text/css" media="all" />
-                    <link href="//qualitifashion.com/cdn/shop/t/1/assets/component-swatch-input.css?v=61683592951238328641739714001" rel="stylesheet" type="text/css" media="all" />
-                    <link href="//qualitifashion.com/cdn/shop/t/1/assets/component-swatch.css?v=6811383713633888781739714001" rel="stylesheet" type="text/css" media="all" />
+                    <link href="{{asset('css/component-product-variant-picker.css?v=101198305663325844211739714001')}}" rel="stylesheet" type="text/css" media="all" />
+                    <link href="{{asset('css/component-swatch-input.css?v=61683592951238328641739714001')}}" rel="stylesheet" type="text/css" media="all" />
+                    <link href="{{asset('css/component-swatch.css?v=6811383713633888781739714001')}}" rel="stylesheet" type="text/css" media="all" />
 
                     <style data-shopify>
                         .section-template--17918930845833__main-padding {
@@ -40,8 +43,8 @@
                             }
                         }
                     </style>
-                    <script src="//qualitifashion.com/cdn/shop/t/1/assets/product-info.js?v=149160427226008204701739714003" defer="defer"></script>
-                    <script src="//qualitifashion.com/cdn/shop/t/1/assets/product-form.js?v=82553749319723712671739714003" defer="defer"></script>
+                    <script src="{{asset('css/product-info.js?v=149160427226008204701739714003')}}" defer="defer"></script>
+                    <script src="{{asset('css/product-form.js?v=82553749319723712671739714003')}}" defer="defer"></script>
 
                     <div class="page-width">
                         <div class="product product--large product--left product--stacked product--mobile-hide grid grid--1-col grid--2-col-tablet">
@@ -50,8 +53,9 @@
                                     <div id="GalleryStatus-template--17918930845833__main" class="visually-hidden" role="status"></div>
                                     <slider-component id="GalleryViewer-template--17918930845833__main" class="slider-mobile-gutter">
                                         <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-template--17918930845833__main">
-                                            Skip to product information
+                                            পণ্যের তথ্যের দিকে স্কিপ করুন
                                         </a>
+                                        <!-- Product Media List -->
                                         <ul id="Slider-Gallery-template--17918930845833__main" class="product__media-list contains-media grid grid--peek list-unstyled slider slider--mobile" role="list">
                                             <li
                                                 id="Slide-template--17918930845833__main-26865504092297"
@@ -74,28 +78,16 @@
                                                                 </svg>
                                                             </span>
                                                         </span>
-
+                                
                                                         <div class="loading__spinner hidden">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66"><circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path" /></svg>
                                                         </div>
                                                         <div class="product__media media media--transparent">
                                                             <img
-                                                                src="//qualitifashion.com/cdn/shop/files/Black.jpg?v=1740401774&amp;width=1946"
+                                                                id="main-product-image"
+                                                                src="{{ asset('images/' . ($colors[0]['image'] ?? 'default.jpg')) }}"
                                                                 alt=""
-                                                                srcset="
-                                                                    //qualitifashion.com/cdn/shop/files/Black.jpg?v=1740401774&amp;width=246   246w,
-                                                                    //qualitifashion.com/cdn/shop/files/Black.jpg?v=1740401774&amp;width=493   493w,
-                                                                    //qualitifashion.com/cdn/shop/files/Black.jpg?v=1740401774&amp;width=600   600w,
-                                                                    //qualitifashion.com/cdn/shop/files/Black.jpg?v=1740401774&amp;width=713   713w,
-                                                                    //qualitifashion.com/cdn/shop/files/Black.jpg?v=1740401774&amp;width=823   823w,
-                                                                    //qualitifashion.com/cdn/shop/files/Black.jpg?v=1740401774&amp;width=990   990w,
-                                                                    //qualitifashion.com/cdn/shop/files/Black.jpg?v=1740401774&amp;width=1100 1100w,
-                                                                    //qualitifashion.com/cdn/shop/files/Black.jpg?v=1740401774&amp;width=1206 1206w,
-                                                                    //qualitifashion.com/cdn/shop/files/Black.jpg?v=1740401774&amp;width=1346 1346w,
-                                                                    //qualitifashion.com/cdn/shop/files/Black.jpg?v=1740401774&amp;width=1426 1426w,
-                                                                    //qualitifashion.com/cdn/shop/files/Black.jpg?v=1740401774&amp;width=1646 1646w,
-                                                                    //qualitifashion.com/cdn/shop/files/Black.jpg?v=1740401774&amp;width=1946 1946w
-                                                                "
+                                                                srcset="{{ asset('images/' . ($colors[0]['image'] ?? 'default.jpg')) }}"
                                                                 width="1946"
                                                                 height="2433"
                                                                 class="image-magnify-lightbox"
@@ -104,13 +96,14 @@
                                                         </div>
                                                         <button class="product__media-toggle quick-add-hidden product__media-zoom-lightbox" type="button" aria-haspopup="dialog" data-media-id="26865504092297">
                                                             <span class="visually-hidden">
-                                                                Open media 1 in modal
+                                                                মডালে মিডিয়া 1 খুলুন
                                                             </span>
                                                         </button>
                                                     </modal-opener>
                                                 </div>
                                             </li>
                                         </ul>
+                                
                                         <div class="slider-buttons quick-add-hidden small-hide">
                                             <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Slide left">
                                                 <span class="svg-wrapper">
@@ -122,7 +115,7 @@
                                             <div class="slider-counter caption">
                                                 <span class="slider-counter--current">1</span>
                                                 <span aria-hidden="true"> / </span>
-                                                <span class="visually-hidden">of</span>
+                                                <span class="visually-hidden">এর মধ্যে</span>
                                                 <span class="slider-counter--total">1</span>
                                             </div>
                                             <button type="button" class="slider-button slider-button--next" name="next" aria-label="Slide right">
@@ -135,15 +128,16 @@
                                         </div>
                                     </slider-component>
                                 </media-gallery>
+                                
                             </div>
                             <div class="product__info-wrapper grid__item scroll-trigger animate--slide-in">
                                 <section id="ProductInfo-template--17918930845833__main" class="product__info-container product__column-sticky">
-                                    <p class="product__text inline-richtext caption-with-letter-spacing">My Store</p>
+                                    <p class="product__text inline-richtext caption-with-letter-spacing">আমার দোকান</p>
                                     <div class="product__title">
-                                        <h1>Premium Micro Stich Panjabi</h1>
-                                        <a href="/products/premium-micro-stich-panjabi" class="product__title">
+                                        <h1>{{ $product->name }}</h1>
+                                        <a href=" {{route('product', $product->slug)}} " class="product__title">
                                             <h2 class="h1">
-                                                Premium Micro Stich Panjabi
+                                                {{ $product->name }}
                                             </h2>
                                         </a>
                                     </div>
@@ -151,277 +145,123 @@
                                         <div class="price price--large price--on-sale price--show-badge">
                                             <div class="price__container">
                                                 <div class="price__regular">
-                                                    <span class="visually-hidden visually-hidden--inline">Regular price</span>
+                                                    <span class="visually-hidden visually-hidden--inline">নিয়মিত দাম</span>
                                                     <span class="price-item price-item--regular">
-                                                        Tk 690.00 BDT
+                                                        Tk {{ $product->price }} BDT
                                                     </span>
                                                 </div>
                                                 <div class="price__sale">
-                                                    <span class="visually-hidden visually-hidden--inline">Regular price</span>
+                                                    <span class="visually-hidden visually-hidden--inline">নিয়মিত দাম</span>
                                                     <span>
                                                         <s class="price-item price-item--regular">
-                                                            Tk 1,090.00 BDT
+                                                            Tk {{ get_field('old_price','price',$product->id,'') }} BDT
                                                         </s>
                                                     </span>
-                                                    <span class="visually-hidden visually-hidden--inline">Sale price</span>
+                                                    <span class="visually-hidden visually-hidden--inline">বিক্রয় দাম</span>
                                                     <span class="price-item price-item--sale price-item--last">
-                                                        Tk 690.00 BDT
+                                                        Tk {{ $product->price }} BDT
                                                     </span>
                                                 </div>
                                                 <small class="unit-price caption hidden">
-                                                    <span class="visually-hidden">Unit price</span>
+                                                    <span class="visually-hidden">ইউনিট দাম</span>
                                                     <span class="price-item price-item--last">
                                                         <span></span>
                                                         <span aria-hidden="true">/</span>
-                                                        <span class="visually-hidden">&nbsp;per&nbsp;</span>
+                                                        <span class="visually-hidden">&nbsp;প্রতি&nbsp;</span>
                                                         <span> </span>
                                                     </span>
                                                 </small>
                                             </div>
-                                            <span class="badge price__badge-sale color-scheme-4">
-                                                Sale
-                                            </span>
-
-                                            <span class="badge price__badge-sold-out color-scheme-3">
-                                                Sold out
-                                            </span>
                                         </div>
                                     </div>
+                                    
                                     <div>
                                         <form method="post" action="/cart/add" id="product-form-installment-template--17918930845833__main" accept-charset="UTF-8" class="installment caption-large" enctype="multipart/form-data">
-                                            <input type="hidden" name="form_type" value="product" /><input type="hidden" name="utf8" value="✓" /><input type="hidden" name="id" value="43374420033673" />
+                                            <input type="hidden" name="form_type" value="product" />
+                                            <input type="hidden" name="utf8" value="✓" />
+                                            <input type="hidden" name="id" value="43374420033673" />
 
-                                            <input type="hidden" name="product-id" value="7999306039433" /><input type="hidden" name="section-id" value="template--17918930845833__main" />
+                                            <input type="hidden" name="product-id" value="7999306039433" />
+                                            <input type="hidden" name="section-id" value="template--17918930845833__main" />
                                         </form>
                                     </div>
                                     <variant-selects id="variant-selects-template--17918930845833__main" data-section="template--17918930845833__main">
+                                        
+                                        
                                         <fieldset class="js product-form__input product-form__input--pill">
-                                            <legend class="form__label">Size</legend>
+                                            <legend class="form__label">সাইজ</legend>
 
-                                            <input
-                                                type="radio"
-                                                id="template--17918930845833__main-1-0"
-                                                name="Size-1
-"
-                                                value="M"
-                                                form="product-form-template--17918930845833__main"
-                                                checked
-                                                data-product-url=""
-                                                data-option-value-id="3265055096969"
-                                            />
-                                            <label for="template--17918930845833__main-1-0"> M<span class="visually-hidden label-unavailable">Variant sold out or unavailable</span> </label>
-                                            <input
-                                                type="radio"
-                                                id="template--17918930845833__main-1-1"
-                                                name="Size-1
-"
-                                                value="L"
-                                                form="product-form-template--17918930845833__main"
-                                                data-product-url=""
-                                                data-option-value-id="3265055129737"
-                                            />
-                                            <label for="template--17918930845833__main-1-1"> L<span class="visually-hidden label-unavailable">Variant sold out or unavailable</span> </label>
-                                            <input
-                                                type="radio"
-                                                id="template--17918930845833__main-1-2"
-                                                name="Size-1
-"
-                                                value="XL"
-                                                form="product-form-template--17918930845833__main"
-                                                data-product-url=""
-                                                data-option-value-id="3265055162505"
-                                            />
-                                            <label for="template--17918930845833__main-1-2"> XL<span class="visually-hidden label-unavailable">Variant sold out or unavailable</span> </label>
-                                        </fieldset>
-                                        <fieldset class="js product-form__input product-form__input--swatch">
-                                            <legend class="form__label">
-                                                Color:
-                                                <span data-selected-value>Black</span>
-                                            </legend>
+                                            @foreach(json_decode($product->size, true) ?? [] as $index => $size)
+                                                <input
+                                                    type="radio"
+                                                    id="size-option-{{ $index }}"  {{-- Unique ID for each size --}}
+                                                    name="size"
+                                                    value="{{ $size['name'] ?? $size }}"
+                                                    form="product-form-template--17918930845833__main"
+                                                    @if($loop->first) checked @endif  {{-- Ensures the first option is checked --}}
+                                                    data-product-url=""
+                                                    data-option-value-id="3265055096969"
+                                                />
+                                                <label for="size-option-{{ $index }}">  {{-- Match label with input ID --}}
+                                                    {{ $size['name'] ?? $size }}
+                                                    <span class="visually-hidden label-unavailable">Variant sold out or unavailable</span> 
+                                                </label>
+                                            @endforeach
 
+
+                                        
+
+                                    </fieldset>
+                                        
+                                        
+                                       
+
+                                       <!-- Color Selection -->
+                                    <fieldset class="js product-form__input product-form__input--swatch">
+                                        <legend class="form__label">
+                                            রঙ :
+                                            <span data-selected-value>{{ $colors[0]['color'] ?? 'Black' }}</span>
+                                        </legend>
+                                        @foreach ($colors as $index => $color)
                                             <input
                                                 type="radio"
-                                                id="template--17918930845833__main-2-0"
-                                                name="Color-2
-"
-                                                value="Black"
+                                                id="color-option-{{ $index }}" 
+                                                name="color"
+                                                value="{{ is_array($color) ? ($color['color'] ?? '') : $color }}"
                                                 form="product-form-template--17918930845833__main"
                                                 class="swatch-input__input"
-                                                checked
-                                                data-product-url=""
+                                                @if($loop->first) checked @endif
+                                                data-product-url="{{ asset('images/' . ($color['image'] ?? 'default.jpg')) }}"
                                                 data-option-value-id="3265055293577"
                                             />
-                                            <label for="template--17918930845833__main-2-0" title="Black" class="swatch-input__label">
-                                                <span class="swatch" style="--swatch--background: url(//qualitifashion.com/cdn/shop/files/Black.jpg?v=1740401774&width=50); --swatch-focal-point: 50% 50%;"></span>
-
-                                                <span class="visually-hidden">Black</span>
+                                            <label for="color-option-{{ $index }}" title="{{ $color['color'] ?? 'Color' }}" class="swatch-input__label">
+                                                <span class="swatch" 
+                                                    style="--swatch--background: url({{ asset('images/' . ($color['image'] ?? 'default.jpg')) }}); 
+                                                        --swatch-focal-point: 50% 50%;">
+                                                </span>
+                                                <span class="visually-hidden">{{ $color['color'] ?? 'Color' }}</span>
                                                 <span class="visually-hidden label-unavailable">Variant sold out or unavailable</span>
                                             </label>
+                                        @endforeach
+                                    </fieldset>
 
-                                            <input
-                                                type="radio"
-                                                id="template--17918930845833__main-2-1"
-                                                name="Color-2
-"
-                                                value="White"
-                                                form="product-form-template--17918930845833__main"
-                                                class="swatch-input__input"
-                                                data-product-url=""
-                                                data-option-value-id="3265055359113"
-                                            />
-                                            <label for="template--17918930845833__main-2-1" title="White" class="swatch-input__label">
-                                                <span class="swatch" style="--swatch--background: url(//qualitifashion.com/cdn/shop/files/White.jpg?v=1740401952&width=50); --swatch-focal-point: 50% 50%;"></span>
-
-                                                <span class="visually-hidden">White</span>
-                                                <span class="visually-hidden label-unavailable">Variant sold out or unavailable</span>
-                                            </label>
-
-                                            <input
-                                                type="radio"
-                                                id="template--17918930845833__main-2-2"
-                                                name="Color-2
-"
-                                                value="Chocolate"
-                                                form="product-form-template--17918930845833__main"
-                                                class="swatch-input__input"
-                                                data-product-url=""
-                                                data-option-value-id="3281342103689"
-                                            />
-                                            <label for="template--17918930845833__main-2-2" title="Chocolate" class="swatch-input__label">
-                                                <span class="swatch" style="--swatch--background: url(//qualitifashion.com/cdn/shop/files/Chocolate.jpg?v=1740401977&width=50); --swatch-focal-point: 50% 50%;"></span>
-
-                                                <span class="visually-hidden">Chocolate</span>
-                                                <span class="visually-hidden label-unavailable">Variant sold out or unavailable</span>
-                                            </label>
-
-                                            <input
-                                                type="radio"
-                                                id="template--17918930845833__main-2-3"
-                                                name="Color-2
-"
-                                                value="Sea Green"
-                                                form="product-form-template--17918930845833__main"
-                                                class="swatch-input__input"
-                                                data-product-url=""
-                                                data-option-value-id="3281342136457"
-                                            />
-                                            <label for="template--17918930845833__main-2-3" title="Sea Green" class="swatch-input__label">
-                                                <span class="swatch" style="--swatch--background: url(//qualitifashion.com/cdn/shop/files/Sea_Green.jpg?v=1740401977&width=50); --swatch-focal-point: 50% 50%;"></span>
-
-                                                <span class="visually-hidden">Sea Green</span>
-                                                <span class="visually-hidden label-unavailable">Variant sold out or unavailable</span>
-                                            </label>
-
-                                            <input
-                                                type="radio"
-                                                id="template--17918930845833__main-2-4"
-                                                name="Color-2
-"
-                                                value="Maroon"
-                                                form="product-form-template--17918930845833__main"
-                                                class="swatch-input__input"
-                                                data-product-url=""
-                                                data-option-value-id="3281342169225"
-                                            />
-                                            <label for="template--17918930845833__main-2-4" title="Maroon" class="swatch-input__label">
-                                                <span class="swatch" style="--swatch--background: url(//qualitifashion.com/cdn/shop/files/Maroon.jpg?v=1740401842&width=50); --swatch-focal-point: 50% 50%;"></span>
-
-                                                <span class="visually-hidden">Maroon</span>
-                                                <span class="visually-hidden label-unavailable">Variant sold out or unavailable</span>
-                                            </label>
-
-                                            <input
-                                                type="radio"
-                                                id="template--17918930845833__main-2-5"
-                                                name="Color-2
-"
-                                                value="Ash"
-                                                form="product-form-template--17918930845833__main"
-                                                class="swatch-input__input"
-                                                data-product-url=""
-                                                data-option-value-id="3281342201993"
-                                            />
-                                            <label for="template--17918930845833__main-2-5" title="Ash" class="swatch-input__label">
-                                                <span class="swatch" style="--swatch--background: url(//qualitifashion.com/cdn/shop/files/Ash.jpg?v=1740401976&width=50); --swatch-focal-point: 50% 50%;"></span>
-
-                                                <span class="visually-hidden">Ash</span>
-                                                <span class="visually-hidden label-unavailable">Variant sold out or unavailable</span>
-                                            </label>
-
-                                            <input
-                                                type="radio"
-                                                id="template--17918930845833__main-2-6"
-                                                name="Color-2
-"
-                                                value="Sky Blue"
-                                                form="product-form-template--17918930845833__main"
-                                                class="swatch-input__input"
-                                                data-product-url=""
-                                                data-option-value-id="3281342234761"
-                                            />
-                                            <label for="template--17918930845833__main-2-6" title="Sky Blue" class="swatch-input__label">
-                                                <span class="swatch" style="--swatch--background: url(//qualitifashion.com/cdn/shop/files/Sky_Blue.jpg?v=1740401977&width=50); --swatch-focal-point: 50% 50%;"></span>
-
-                                                <span class="visually-hidden">Sky Blue</span>
-                                                <span class="visually-hidden label-unavailable">Variant sold out or unavailable</span>
-                                            </label>
-                                        </fieldset>
-                                        <script type="application/json" data-selected-variant>
-                                            {
-                                                "id": 43374420033673,
-                                                "title": "M \/ Black",
-                                                "option1": "M",
-                                                "option2": "Black",
-                                                "option3": null,
-                                                "sku": "",
-                                                "requires_shipping": true,
-                                                "taxable": true,
-                                                "featured_image": {
-                                                    "id": 34847542182025,
-                                                    "product_id": 7999306039433,
-                                                    "position": 1,
-                                                    "created_at": "2025-02-24T18:56:12+06:00",
-                                                    "updated_at": "2025-02-24T18:56:14+06:00",
-                                                    "alt": null,
-                                                    "width": 1024,
-                                                    "height": 1280,
-                                                    "src": "\/\/qualitifashion.com\/cdn\/shop\/files\/Black.jpg?v=1740401774",
-                                                    "variant_ids": [43374420033673, 43374420230281, 43374420426889]
-                                                },
-                                                "available": true,
-                                                "name": "Premium Micro Stich Panjabi - M \/ Black",
-                                                "public_title": "M \/ Black",
-                                                "options": ["M", "Black"],
-                                                "price": 69000,
-                                                "weight": 500,
-                                                "compare_at_price": 109000,
-                                                "inventory_management": "shopify",
-                                                "barcode": "",
-                                                "featured_media": {
-                                                    "alt": null,
-                                                    "id": 26865504092297,
-                                                    "position": 1,
-                                                    "preview_image": { "aspect_ratio": 0.8, "height": 1280, "width": 1024, "src": "\/\/qualitifashion.com\/cdn\/shop\/files\/Black.jpg?v=1740401774" }
-                                                },
-                                                "requires_selling_plan": false,
-                                                "selling_plan_allocations": []
-                                            }
-                                        </script>
+                                        
+                                       
                                     </variant-selects>
                                     <div id="Quantity-Form-template--17918930845833__main" class="product-form__input product-form__quantity">
                                         <label class="quantity__label form__label" for="Quantity-template--17918930845833__main">
-                                            Quantity
+                                            পরিমাণ
                                             <span class="quantity__rules-cart hidden">
                                                 <div class="loading__spinner hidden">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66"><circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path" /></svg>
                                                 </div>
-                                                <span>(<span class="quantity-cart">0</span> in cart)</span>
+                                                <span>(<span class="quantity-cart">0</span> কার্টে)</span>
                                             </span>
                                         </label>
                                         <div class="price-per-item__container">
                                             <quantity-input class="quantity" data-url="/products/premium-micro-stich-panjabi" data-section="template--17918930845833__main">
                                                 <button class="quantity__button" name="minus" type="button">
-                                                    <span class="visually-hidden">Decrease quantity for Premium Micro Stich Panjabi</span>
+                                                    <span class="visually-hidden">Premium Micro Stich Panjabi এর পরিমাণ কমান</span>
                                                     <span class="svg-wrapper">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-minus" viewBox="0 0 10 2">
                                                             <path fill="currentColor" fill-rule="evenodd" d="M.5 1C.5.7.7.5 1 .5h8a.5.5 0 1 1 0 1H1A.5.5 0 0 1 .5 1" clip-rule="evenodd" />
@@ -441,7 +281,7 @@
                                                     form="product-form-template--17918930845833__main"
                                                 />
                                                 <button class="quantity__button" name="plus" type="button">
-                                                    <span class="visually-hidden">Increase quantity for Premium Micro Stich Panjabi</span>
+                                                    <span class="visually-hidden">Premium Micro Stich Panjabi এর পরিমাণ বাড়ান</span>
                                                     <span class="svg-wrapper">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-plus" viewBox="0 0 10 10">
                                                             <path
@@ -457,39 +297,27 @@
                                         </div>
                                         <div class="quantity__rules caption" id="Quantity-Rules-template--17918930845833__main"></div>
                                     </div>
+                                    
                                     <div>
-                                        <product-form class="product-form" data-hide-errors="false" data-section-id="template--17918930845833__main">
-                                            <div class="product-form__error-message-wrapper" role="alert" hidden>
-                                                <span class="svg-wrapper">
-                                                    <svg class="icon icon-error" viewBox="0 0 13 13">
-                                                        <circle cx="6.5" cy="6.5" r="5.5" stroke="#fff" stroke-width="2" />
-                                                        <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width=".7" />
-                                                        <path fill="#fff" d="m5.874 3.528.1 4.044h1.053l.1-4.044zm.627 6.133c.38 0 .68-.288.68-.656s-.3-.656-.68-.656-.681.288-.681.656.3.656.68.656" />
-                                                        <path
-                                                            fill="#fff"
-                                                            stroke="#EB001B"
-                                                            stroke-width=".7"
-                                                            d="M5.874 3.178h-.359l.01.359.1 4.044.008.341h1.736l.008-.341.1-4.044.01-.359H5.873Zm.627 6.833c.56 0 1.03-.432 1.03-1.006s-.47-1.006-1.03-1.006-1.031.432-1.031 1.006.47 1.006 1.03 1.006Z"
-                                                        />
-                                                    </svg>
-                                                </span>
-                                                <span class="product-form__error-message"></span>
-                                            </div>
                                             <form
                                                 method="post"
-                                                action="/cart/add"
+                                                action="{{ route('cartStore') }}"
                                                 id="product-form-template--17918930845833__main"
                                                 accept-charset="UTF-8"
-                                                class="form"
+                                               
                                                 enctype="multipart/form-data"
                                                 novalidate="novalidate"
                                                 data-type="add-to-cart-form"
                                             >
-                                                <input type="hidden" name="form_type" value="product" /><input type="hidden" name="utf8" value="✓" /><input type="hidden" name="id" value="43374420033673" class="product-variant-id" />
+                                            @csrf
+
+                                                <input type="hidden" name="form_type" value="product" />
+                                                <input type="hidden" name="utf8" value="✓" />
+                                                <input type="hidden" name="id" value="{{ $product->id }}" />
                                                 <div class="product-form__buttons">
                                                     <button id="ProductSubmitButton-template--17918930845833__main" type="submit" name="add" class="product-form__submit button button--full-width button--secondary">
-                                                        <span>Add to cart </span>
-
+                                                        <span>অর্ডার করুন</span>
+                                                
                                                         <div class="loading__spinner hidden">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66"><circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path" /></svg>
                                                         </div>
@@ -510,15 +338,17 @@
                                                             </div>
                                                         </shopify-accelerated-checkout>
                                                         <small id="shopify-buyer-consent" class="hidden" aria-hidden="true">
-                                                            This item is a recurring or deferred purchase. By continuing, I agree to the <span id="shopify-subscription-policy-button">cancellation policy</span> and authorize you to charge my
-                                                            payment method at the prices, frequency and dates listed on this page until my order is fulfilled or I cancel, if permitted.
+                                                            এই আইটেমটি একটি পুনরাবৃত্তি বা বিলম্বিত ক্রয়। অব্যাহত রাখার মাধ্যমে, আমি <span id="shopify-subscription-policy-button">বাতিলকরণ নীতির</span> সাথে একমত হই এবং আমি অনুমোদিত হব যাতে আপনি আমার
+                                                            পেমেন্ট পদ্ধতিতে পৃষ্ঠায় তালিকাভুক্ত দাম, ফ্রিকোয়েন্সি এবং তারিখগুলির উপর ভিত্তি করে চার্জ করতে পারেন যতক্ষণ না আমার অর্ডার পূর্ণ হয় বা আমি এটি বাতিল করি, যদি অনুমোদিত হয়।
                                                         </small>
                                                     </div>
                                                 </div>
+                                                
                                                 <input type="hidden" name="product-id" value="7999306039433" /><input type="hidden" name="section-id" value="template--17918930845833__main" />
                                             </form>
-                                        </product-form>
-                                        <link href="//qualitifashion.com/cdn/shop/t/1/assets/component-pickup-availability.css?v=34645222959864780961739714001" rel="stylesheet" type="text/css" media="all" />
+
+
+                                        <link href="{{asset('css/component-pickup-availability.css?v=34645222959864780961739714001')}}" rel="stylesheet" type="text/css" media="all" />
                                         <pickup-availability
                                             class="product__pickup-availabilities quick-add-hidden"
                                             data-root-url="/"
@@ -547,85 +377,15 @@
                                             </template>
                                         </pickup-availability>
 
-                                        <script src="//qualitifashion.com/cdn/shop/t/1/assets/pickup-availability.js?v=78418059211521962961739714003" defer="defer"></script>
+                                        <script src="{{asset('css/pickup-availability.js?v=78418059211521962961739714003')}}" defer="defer"></script>
                                     </div>
                                     <div class="product__description rte quick-add-hidden">
-                                        <h3 data-start="0" data-end="405">
-                                            <strong>M: 40  Long - 40, Body- 42</strong><br />
-                                            <strong>L:   42  Long - 42, Body- 44</strong><br />
-                                            <strong>XL: 44  Long - 44, Body- 46</strong>
-                                        </h3>
                                         <p data-start="0" data-end="405" data-is-last-node="">
-                                            The Premium Micro Stitch Panjabi is a high-quality, stylish traditional garment crafted with precision stitching and fine fabric. Featuring a modern fit, it combines comfort with elegance, making
-                                            it perfect for festive occasions, weddings, or cultural events. The intricate micro-stitch detailing adds a touch of sophistication, elevating the classic panjabi to a premium level of
-                                            craftsmanship and style.
+                                           {{ $product->description }}
                                         </p>
                                     </div>
-                                    <script src="//qualitifashion.com/cdn/shop/t/1/assets/share.js?v=13024540447964430191739714003" defer="defer"></script>
+                                    <script src="{{asset('css/share.js?v=13024540447964430191739714003')}}" defer="defer"></script>
 
-                                    <share-button id="Share-template--17918930845833__main" class="share-button quick-add-hidden">
-                                        <button class="share-button__button hidden">
-                                            <span class="svg-wrapper">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-share" viewBox="0 0 13 12">
-                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M1.625 8.125v2.167a1.083 1.083 0 0 0 1.083 1.083h7.584a1.083 1.083 0 0 0 1.083-1.083V8.125" />
-                                                    <path fill="currentColor" fill-rule="evenodd" d="M6.148 1.271a.5.5 0 0 1 .707 0L9.563 3.98a.5.5 0 0 1-.707.707L6.501 2.332 4.147 4.687a.5.5 0 1 1-.708-.707z" clip-rule="evenodd" />
-                                                    <path fill="currentColor" fill-rule="evenodd" d="M6.5 1.125a.5.5 0 0 1 .5.5v6.5a.5.5 0 0 1-1 0v-6.5a.5.5 0 0 1 .5-.5" clip-rule="evenodd" />
-                                                </svg>
-                                            </span>
-                                            Share
-                                        </button>
-                                        <details id="Details-share-template--17918930845833__main">
-                                            <summary class="share-button__button">
-                                                <span class="svg-wrapper">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-share" viewBox="0 0 13 12">
-                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M1.625 8.125v2.167a1.083 1.083 0 0 0 1.083 1.083h7.584a1.083 1.083 0 0 0 1.083-1.083V8.125" />
-                                                        <path fill="currentColor" fill-rule="evenodd" d="M6.148 1.271a.5.5 0 0 1 .707 0L9.563 3.98a.5.5 0 0 1-.707.707L6.501 2.332 4.147 4.687a.5.5 0 1 1-.708-.707z" clip-rule="evenodd" />
-                                                        <path fill="currentColor" fill-rule="evenodd" d="M6.5 1.125a.5.5 0 0 1 .5.5v6.5a.5.5 0 0 1-1 0v-6.5a.5.5 0 0 1 .5-.5" clip-rule="evenodd" />
-                                                    </svg>
-                                                </span>
-                                                Share
-                                            </summary>
-                                            <div class="share-button__fallback motion-reduce">
-                                                <div class="field">
-                                                    <span id="ShareMessage-template--17918930845833__main" class="share-button__message hidden" role="status"> </span>
-                                                    <input
-                                                        type="text"
-                                                        class="field__input"
-                                                        id="ShareUrl-template--17918930845833__main"
-                                                        value="https://qualitifashion.com/products/premium-micro-stich-panjabi"
-                                                        placeholder="Link"
-                                                        onclick="this.select();"
-                                                        readonly
-                                                    />
-                                                    <label class="field__label" for="ShareUrl-template--17918930845833__main">Link</label>
-                                                </div>
-                                                <button class="share-button__close hidden">
-                                                    <span class="svg-wrapper">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-close" viewBox="0 0 18 17">
-                                                            <path
-                                                                fill="currentColor"
-                                                                d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z"
-                                                            />
-                                                        </svg>
-                                                    </span>
-                                                    <span class="visually-hidden">Close share</span>
-                                                </button>
-                                                <button class="share-button__copy">
-                                                    <span class="svg-wrapper">
-                                                        <svg class="icon icon-clipboard" width="11" height="13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 11 13">
-                                                            <path
-                                                                fill-rule="evenodd"
-                                                                clip-rule="evenodd"
-                                                                d="M2 1a1 1 0 011-1h7a1 1 0 011 1v9a1 1 0 01-1 1V1H2zM1 2a1 1 0 00-1 1v9a1 1 0 001 1h7a1 1 0 001-1V3a1 1 0 00-1-1H1zm0 10V3h7v9H1z"
-                                                                fill="currentColor"
-                                                            />
-                                                        </svg>
-                                                    </span>
-                                                    <span class="visually-hidden">Copy link</span>
-                                                </button>
-                                            </div>
-                                        </details>
-                                    </share-button>
 
                                     <a href="/products/premium-micro-stich-panjabi" class="link product__view-details animate-arrow">
                                         View full details
@@ -654,405 +414,46 @@
                                 </button>
 
                                 <div class="product-media-modal__content color-scheme-1 gradient" role="document" aria-label="Media gallery" tabindex="0">
-                                    <img
-                                        class="global-media-settings global-media-settings--no-shadow product__media-item--variant"
-                                        srcset="//qualitifashion.com/cdn/shop/files/Black.jpg?v=1740401774&width=550 550w, //qualitifashion.com/cdn/shop/files/Black.jpg?v=1740401774 1024w"
-                                        sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
-                                        src="//qualitifashion.com/cdn/shop/files/Black.jpg?v=1740401774&width=1445"
-                                        alt="Premium Micro Stich Panjabi"
-                                        loading="lazy"
-                                        width="1100"
-                                        height="1375"
-                                        data-media-id="26865504092297"
-                                    />
-                                    <img
-                                        class="global-media-settings global-media-settings--no-shadow product__media-item--variant"
-                                        srcset="//qualitifashion.com/cdn/shop/files/White.jpg?v=1740401952&width=550 550w, //qualitifashion.com/cdn/shop/files/White.jpg?v=1740401952 1023w"
-                                        sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
-                                        src="//qualitifashion.com/cdn/shop/files/White.jpg?v=1740401952&width=1445"
-                                        alt="Premium Micro Stich Panjabi"
-                                        loading="lazy"
-                                        width="1100"
-                                        height="1377"
-                                        data-media-id="26865509236873"
-                                    />
-                                    <img
-                                        class="global-media-settings global-media-settings--no-shadow product__media-item--variant"
-                                        srcset="//qualitifashion.com/cdn/shop/files/Chocolate.jpg?v=1740401977&width=550 550w, //qualitifashion.com/cdn/shop/files/Chocolate.jpg?v=1740401977 1024w"
-                                        sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
-                                        src="//qualitifashion.com/cdn/shop/files/Chocolate.jpg?v=1740401977&width=1445"
-                                        alt="Premium Micro Stich Panjabi"
-                                        loading="lazy"
-                                        width="1100"
-                                        height="1375"
-                                        data-media-id="26865509728393"
-                                    />
-                                    <img
-                                        class="global-media-settings global-media-settings--no-shadow product__media-item--variant"
-                                        srcset="//qualitifashion.com/cdn/shop/files/Sea_Green.jpg?v=1740401977&width=550 550w, //qualitifashion.com/cdn/shop/files/Sea_Green.jpg?v=1740401977 1023w"
-                                        sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
-                                        src="//qualitifashion.com/cdn/shop/files/Sea_Green.jpg?v=1740401977&width=1445"
-                                        alt="Premium Micro Stich Panjabi"
-                                        loading="lazy"
-                                        width="1100"
-                                        height="1377"
-                                        data-media-id="26865509793929"
-                                    />
-                                    <img
-                                        class="global-media-settings global-media-settings--no-shadow product__media-item--variant"
-                                        srcset="//qualitifashion.com/cdn/shop/files/Maroon.jpg?v=1740401842&width=550 550w, //qualitifashion.com/cdn/shop/files/Maroon.jpg?v=1740401842 1023w"
-                                        sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
-                                        src="//qualitifashion.com/cdn/shop/files/Maroon.jpg?v=1740401842&width=1445"
-                                        alt="Premium Micro Stich Panjabi"
-                                        loading="lazy"
-                                        width="1100"
-                                        height="1377"
-                                        data-media-id="26865505730697"
-                                    />
-                                    <img
-                                        class="global-media-settings global-media-settings--no-shadow product__media-item--variant"
-                                        srcset="//qualitifashion.com/cdn/shop/files/Ash.jpg?v=1740401976&width=550 550w, //qualitifashion.com/cdn/shop/files/Ash.jpg?v=1740401976 1024w"
-                                        sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
-                                        src="//qualitifashion.com/cdn/shop/files/Ash.jpg?v=1740401976&width=1445"
-                                        alt="Premium Micro Stich Panjabi"
-                                        loading="lazy"
-                                        width="1100"
-                                        height="1375"
-                                        data-media-id="26865509662857"
-                                    />
-                                    <img
-                                        class="global-media-settings global-media-settings--no-shadow product__media-item--variant"
-                                        srcset="//qualitifashion.com/cdn/shop/files/Sky_Blue.jpg?v=1740401977&width=550 550w, //qualitifashion.com/cdn/shop/files/Sky_Blue.jpg?v=1740401977 1024w"
-                                        sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
-                                        src="//qualitifashion.com/cdn/shop/files/Sky_Blue.jpg?v=1740401977&width=1445"
-                                        alt="Premium Micro Stich Panjabi"
-                                        loading="lazy"
-                                        width="1100"
-                                        height="1375"
-                                        data-media-id="26865509761161"
-                                    />
+                                    
+                                    @foreach (json_decode($product->slider_data, true) ?? [] as $color)
+                                        <img
+                                            class="global-media-settings global-media-settings--no-shadow product__media-item--variant"
+                                            srcset="{{ asset('images/' . ($color['image'] ?? 'default.jpg')) }}"
+                                            sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
+                                            src="{{ asset('images/' . ($color['image'] ?? 'default.jpg')) }}"
+                                            alt="Premium Micro Stich Panjabi"
+                                            loading="lazy"
+                                            width="1100"
+                                            height="1375"
+                                            data-media-id="{{ $color['id'] ?? '' }}"
+                                        />
+                                    @endforeach
+
                                 </div>
                             </div>
                         </product-modal>
 
-                        <script src="//qualitifashion.com/cdn/shop/t/1/assets/product-modal.js?v=116616134454508949461739714003" defer="defer"></script>
-                        <script src="//qualitifashion.com/cdn/shop/t/1/assets/media-gallery.js?v=53998976194532824491739714003" defer="defer"></script>
-                        <script type="application/ld+json">
-                            {
-                                "@context": "http:\/\/schema.org\/",
-                                "@id": "\/products\/premium-micro-stich-panjabi#product",
-                                "@type": "ProductGroup",
-                                "brand": { "@type": "Brand", "name": "My Store" },
-                                "category": "Traditional \u0026 Ceremonial Clothing",
-                                "description": "\nM: 40  Long - 40, Body- 42L:   42  Long - 42, Body- 44XL: 44  Long - 44, Body- 46\n\nThe Premium Micro Stitch Panjabi is a high-quality, stylish traditional garment crafted with precision stitching and fine fabric. Featuring a modern fit, it combines comfort with elegance, making it perfect for festive occasions, weddings, or cultural events. The intricate micro-stitch detailing adds a touch of sophistication, elevating the classic panjabi to a premium level of craftsmanship and style.",
-                                "hasVariant": [
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43374420033673#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/Black.jpg?v=1740401774\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - M \/ Black",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43374420033673#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43374420033673"
-                                        }
-                                    },
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43374420099209#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/White.jpg?v=1740401952\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - M \/ White",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43374420099209#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43374420099209"
-                                        }
-                                    },
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684635785#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/Chocolate.jpg?v=1740401977\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - M \/ Chocolate",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684635785#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43393684635785"
-                                        }
-                                    },
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684668553#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/Sea_Green.jpg?v=1740401977\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - M \/ Sea Green",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684668553#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43393684668553"
-                                        }
-                                    },
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684701321#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/Maroon.jpg?v=1740401842\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - M \/ Maroon",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684701321#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43393684701321"
-                                        }
-                                    },
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684734089#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/Ash.jpg?v=1740401976\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - M \/ Ash",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684734089#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43393684734089"
-                                        }
-                                    },
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684766857#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/Sky_Blue.jpg?v=1740401977\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - M \/ Sky Blue",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684766857#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43393684766857"
-                                        }
-                                    },
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43374420230281#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/Black.jpg?v=1740401774\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - L \/ Black",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43374420230281#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43374420230281"
-                                        }
-                                    },
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43374420295817#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/White.jpg?v=1740401952\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - L \/ White",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43374420295817#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43374420295817"
-                                        }
-                                    },
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684799625#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/Chocolate.jpg?v=1740401977\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - L \/ Chocolate",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684799625#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43393684799625"
-                                        }
-                                    },
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684832393#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/Sea_Green.jpg?v=1740401977\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - L \/ Sea Green",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684832393#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43393684832393"
-                                        }
-                                    },
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684865161#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/Maroon.jpg?v=1740401842\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - L \/ Maroon",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684865161#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43393684865161"
-                                        }
-                                    },
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684897929#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/Ash.jpg?v=1740401976\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - L \/ Ash",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684897929#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43393684897929"
-                                        }
-                                    },
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684930697#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/Sky_Blue.jpg?v=1740401977\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - L \/ Sky Blue",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684930697#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43393684930697"
-                                        }
-                                    },
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43374420426889#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/Black.jpg?v=1740401774\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - XL \/ Black",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43374420426889#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43374420426889"
-                                        }
-                                    },
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43374420492425#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/White.jpg?v=1740401952\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - XL \/ White",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43374420492425#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43374420492425"
-                                        }
-                                    },
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684963465#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/Chocolate.jpg?v=1740401977\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - XL \/ Chocolate",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684963465#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43393684963465"
-                                        }
-                                    },
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684996233#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/Sea_Green.jpg?v=1740401977\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - XL \/ Sea Green",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43393684996233#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43393684996233"
-                                        }
-                                    },
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43393685029001#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/Maroon.jpg?v=1740401842\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - XL \/ Maroon",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43393685029001#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43393685029001"
-                                        }
-                                    },
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43393685061769#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/Ash.jpg?v=1740401976\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - XL \/ Ash",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43393685061769#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43393685061769"
-                                        }
-                                    },
-                                    {
-                                        "@id": "\/products\/premium-micro-stich-panjabi?variant=43393685094537#variant",
-                                        "@type": "Product",
-                                        "image": "https:\/\/qualitifashion.com\/cdn\/shop\/files\/Sky_Blue.jpg?v=1740401977\u0026width=1920",
-                                        "name": "Premium Micro Stich Panjabi - XL \/ Sky Blue",
-                                        "offers": {
-                                            "@id": "\/products\/premium-micro-stich-panjabi?variant=43393685094537#offer",
-                                            "@type": "Offer",
-                                            "availability": "http:\/\/schema.org\/InStock",
-                                            "price": "690.00",
-                                            "priceCurrency": "BDT",
-                                            "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi?variant=43393685094537"
-                                        }
-                                    }
-                                ],
-                                "name": "Premium Micro Stich Panjabi",
-                                "productGroupID": "7999306039433",
-                                "url": "https:\/\/qualitifashion.com\/products\/premium-micro-stich-panjabi"
-                            }
-                        </script>
+                        <script src="{{asset('css/product-modal.js?v=116616134454508949461739714003')}}" defer="defer"></script>
+                        <script src="{{asset('css/media-gallery.js?v=53998976194532824491739714003')}}" defer="defer"></script>
+                      
                     </div>
                 </product-info>
             </section>
+
+
+
+
+
+
+
+
+
+
+
             <section id="shopify-section-template--17918930845833__related-products" class="shopify-section section">
-                <link href="//qualitifashion.com/cdn/shop/t/1/assets/component-card.css?v=120341546515895839841739714001" rel="stylesheet" type="text/css" media="all" />
-                <link href="//qualitifashion.com/cdn/shop/t/1/assets/component-price.css?v=70172745017360139101739714001" rel="stylesheet" type="text/css" media="all" />
-                <link href="//qualitifashion.com/cdn/shop/t/1/assets/section-related-products.css?v=80324771040738084201739714003" rel="stylesheet" type="text/css" media="all" />
+                <link href="{{asset('css/component-card.css?v=120341546515895839841739714001')}}" rel="stylesheet" type="text/css" media="all" />
+                <link href="{{asset('css/component-price.css?v=70172745017360139101739714001')}}" rel="stylesheet" type="text/css" media="all" />
+                <link href="{{asset('css/section-related-products.css?v=80324771040738084201739714003')}}" rel="stylesheet" type="text/css" media="all" />
 
                 <style data-shopify>
                     .section-template--17918930845833__related-products-padding {
@@ -1077,7 +478,193 @@
                     </product-recommendations>
                 </div>
             </section>
+
+
+            <section id="shopify-section-template--17918930681993__featured_collection" class="shopify-section section">
+                <link href="{{asset('css/component-card.css?v=120341546515895839841739714001')}}" rel="stylesheet" type="text/css" media="all" />
+                <link href="{{asset('css/component-price.css?v=70172745017360139101739714001')}}" rel="stylesheet" type="text/css" media="all" />
+        
+                <link href="{{asset('css/component-slider.css?v=14039311878856620671739714001')}}" rel="stylesheet" type="text/css" media="all" />
+                <link href="{{asset('css/template-collection.css?v=58558206033505836701739714003')}}" rel="stylesheet" type="text/css" media="all" />
+        
+                <style data-shopify>
+                    .section-template--17918930681993__featured_collection-padding {
+                        padding-top: 33px;
+                        padding-bottom: 27px;
+                    }
+        
+                    @media screen and (min-width: 750px) {
+                        .section-template--17918930681993__featured_collection-padding {
+                            padding-top: 44px;
+                            padding-bottom: 36px;
+                        }
+                    }
+                </style>
+                <div class="color-scheme-1 isolate gradient">
+                    <div class="collection section-template--17918930681993__featured_collection-padding" id="collection-template--17918930681993__featured_collection" data-id="template--17918930681993__featured_collection">
+                        <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width">
+                            <h2 class="title inline-richtext h2 scroll-trigger animate--slide-in">
+                                আরও পণ্য
+                            </h2>
+                        </div>
+        
+                        <slider-component class="slider-mobile-gutter page-width page-width-desktop scroll-trigger animate--slide-in">
+                            <ul
+                                id="Slider-template--17918930681993__featured_collection"
+                                data-id="template--17918930681993__featured_collection"
+                                class="grid product-grid contains-card contains-card--product contains-card--standard grid--4-col-desktop grid--2-col-tablet-down"
+                                role="list"
+                                aria-label="Slider"
+                            >
+        
+        
+        
+                            @foreach ( get_all_movies($product->id) as $product )
+        
+                                <li id="Slide-template--17918930681993__featured_collection-1" class="grid__item scroll-trigger animate--slide-in" data-cascade style="--animation-order: 1;">
+                                    <link href="{{asset('css/component-rating.css?v=179577762467860590411739714001')}}" rel="stylesheet" type="text/css" media="all" />
+                                    <link href="{{asset('css/component-volume-pricing.css?v=111870094811454961941739714001')}}" rel="stylesheet" type="text/css" media="all" />
+        
+                                    <link href="{{asset('css/component-price.css?v=70172745017360139101739714001')}}" rel="stylesheet" type="text/css" media="all" />
+                                    <link href="{{asset('css/quick-order-list.css?v=129932180309343703061739714003')}}" rel="stylesheet" type="text/css" media="all" />
+                                    <link href="{{asset('css/quantity-popover.css?v=129068967981937647381739714003')}}" rel="stylesheet" type="text/css" media="all" />
+                                    <div class="card-wrapper product-card-wrapper underline-links-hover">
+                                        <div class="card card--standard card--media" style="--ratio-percent: 133.33333333333334%;">
+                                            <div class="card__inner color-scheme-2 gradient ratio" style="--ratio-percent: 133.33333333333334%;">
+                                                <div class="card__media">
+                                                    <div class="media media--transparent media--hover-effect">
+                                                        <img
+                                                            srcset="{{ asset('images/'.$product->image) }}"
+                                                            
+                                                            src="{{ asset('images/'.$product->image) }}"
+                                                            sizes="(min-width: 1200px) 267px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                                                            alt="China Lacra Stitch Fabric"
+                                                            class="motion-reduce"
+                                                            loading="lazy"
+                                                            width="720"
+                                                            height="960"
+                                                        />
+        
+                                                        <img
+                                                            srcset="{{ asset('images/'.$product->image) }}"
+                                                            
+                                                            src="{{ asset('images/'.$product->image) }}"
+                                                            sizes="(min-width: 1200px) 267px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                                                            alt=""
+                                                            class="motion-reduce"
+                                                            loading="lazy"
+                                                            width="720"
+                                                            height="960"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="card__content">
+                                                    <div class="card__information">
+                                                        <h3 class="card__heading">
+                                                            <a
+                                                                href="{{ route('product', $product->slug) }}"
+                                                                id="StandardCardNoMediaLink-template--17918930681993__featured_collection-8006034456713"
+                                                                class="full-unstyled-link"
+                                                                aria-labelledby="StandardCardNoMediaLink-template--17918930681993__featured_collection-8006034456713 NoMediaStandardBadge-template--17918930681993__featured_collection-8006034456713"
+                                                            >
+                                                                {{ $product->name }}
+                                                            </a>
+                                                        </h3>
+                                                    </div>
+                                                    <div class="card__badge bottom left">
+                                                        <span id="NoMediaStandardBadge-template--17918930681993__featured_collection-8006034456713" class="badge badge--bottom-left color-scheme-4">Sale</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card__content">
+                                                <div class="card__information">
+                                                    <h3 class="card__heading h5" id="title-template--17918930681993__featured_collection-8006034456713">
+                                                        <a
+                                                            href="{{ route('product', $product->slug) }}"
+                                                            id="CardLink-template--17918930681993__featured_collection-8006034456713"
+                                                            class="full-unstyled-link"
+                                                            aria-labelledby="CardLink-template--17918930681993__featured_collection-8006034456713 Badge-template--17918930681993__featured_collection-8006034456713"
+                                                        >
+                                                            {{ $product->name }}
+                                                        </a>
+                                                    </h3>
+                                                    <div class="card-information">
+                                                        <span class="caption-large light"></span>
+                                                        <div class="price price--on-sale">
+                                                            <div class="price__container">
+                                                                <div class="price__regular">
+                                                                    <span class="visually-hidden visually-hidden--inline">সাধারণ মূল্য</span>
+                                                                    <span class="price-item price-item--regular">
+                                                                        Tk {{ $product->price }} BDT
+                                                                    </span>
+                                                                </div>
+                                                                <div class="price__sale">
+                                                                    <span class="visually-hidden visually-hidden--inline">সাধারণ মূল্য</span>
+                                                                    <span>
+                                                                        <s class="price-item price-item--regular">
+                                                                            Tk {{ get_field('old_price','price',$product->id,'') }} BDT
+                                                                        </s>
+                                                                    </span>
+                                                                    <span class="visually-hidden visually-hidden--inline">ছাড়ের মূল্য</span>
+                                                                    <span class="price-item price-item--sale price-item--last">
+                                                                        Tk {{ $product->price }} BDT
+                                                                    </span>
+                                                                </div>
+                                                                <small class="unit-price caption hidden">
+                                                                    <span class="visually-hidden">ইউনিট মূল্য</span>
+                                                                    <span class="price-item price-item--last">
+                                                                        <span></span>
+                                                                        <span aria-hidden="true">/</span>
+                                                                        <span class="visually-hidden">&nbsp;প্রতি&nbsp;</span>
+                                                                        <span> </span>
+                                                                    </span>
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            
+                                                <div class="card__badge bottom left"><span id="Badge-template--17918930681993__featured_collection-8006034456713" class="badge badge--bottom-left color-scheme-4">ছাড়</span></div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </li>
+        
+                            @endforeach
+        
+        
+                            </ul>
+                        </slider-component>
+                    </div>
+                </div>
+            </section>
+
         </main>
+
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Get all color radio buttons
+                const colorInputs = document.querySelectorAll('input[name="color"]');
+                const mainProductImage = document.getElementById('main-product-image');
+            
+                // Add event listener to each color input
+                colorInputs.forEach(input => {
+                    input.addEventListener('change', function() {
+                        // Get the selected color's image URL from the data attribute
+                        const selectedColorImage = this.getAttribute('data-product-url');
+            
+                        // Update the main product image source
+                        if (selectedColorImage) {
+                            mainProductImage.src = selectedColorImage;
+                            mainProductImage.srcset = selectedColorImage;
+                        }
+                    });
+                });
+            });
+            </script>
+                           
 
 
 @endsection

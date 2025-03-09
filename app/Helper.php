@@ -120,3 +120,11 @@ function price_format($price)
 {
     return number_format($price, 3);
 }
+
+
+//get 4 product for single page check if product 
+
+function get_all_movies($currentproduct = null)
+{
+    return Products::where('id', '!=', $currentproduct)->limit(4)->get();
+}

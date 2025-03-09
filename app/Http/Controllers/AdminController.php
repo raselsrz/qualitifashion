@@ -27,8 +27,8 @@ class AdminController extends Controller
         //get product id
         $product_id = json_decode($orders->product_id);
 
-        //get product data
-        $products = Products::whereIn('id', $product_id)->get();
+        //get product details
+        $products = $product_id;
 
 
         return view('admin.pages.order.view', compact('orders', 'products'));

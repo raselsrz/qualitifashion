@@ -14,6 +14,8 @@ class Products extends Model
         'image',
         'status',
         'slug',
+        'size',
+        'slider_data',
     ];
 
     public function getRouteKeyName()

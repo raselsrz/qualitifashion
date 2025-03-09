@@ -13,7 +13,7 @@
             </button>
             <!-- Brand -->
             <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="{{route('admin.dashboard')}}">
-                <h3 class="text-success"><span class="text-info">Print </span>House</h3> 
+                <h3 class="text-success"><span class="text-info">Auramans </span>Fashion</h3> 
             </a>
             <!-- User menu (mobile) -->
             <div class="navbar-user d-lg-none">
@@ -64,6 +64,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('admin.order.orderHome')}}">
                             <i class="bi bi-cart"></i> Orders
+                        </a>
+                    </li>
+
+                    {{-- message --}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('admin.message.messageHome')}}">
+                            <i class="bi bi-mailbox"></i> Messages
                         </a>
                     </li>
 

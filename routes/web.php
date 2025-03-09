@@ -34,21 +34,45 @@ use App\Http\Controllers\CartController;
 
     Route::get('/', function () {
 
-        $products = Products::all();
+        $products = Products::orderBy('id', 'desc')->paginate(8);
   
         return view('home.index', compact('products'));
     
     })->name('home');
 
 
-    
+    //cartStore add to cart session
+Route::post('cartStore', [App\Http\Controllers\ProductController::class, 'cartStore'])->name('cartStore');
 
+
+    //cart
+Route::get('cart', [App\Http\Controllers\ProductController::class, 'cart'])->name('cart');
+
+//cart delete
+Route::get('cartDelete/{id}', [App\Http\Controllers\ProductController::class, 'cartDelete'])->name('cartDelete');
     
 
 Route::post('order', [App\Http\Controllers\ProductController::class, 'orderStore'])->name('orderStore');
 
+//thankyou
+Route::get('thankyou', [App\Http\Controllers\ProductController::class, 'thankyou'])->name('thankyou');
 
 
+
+//shop
+Route::get('shop', [App\Http\Controllers\ProductController::class, 'shop'])->name('shop');
+
+
+//checkout
+Route::get('checkout', [App\Http\Controllers\ProductController::class, 'checkout'])->name('checkout');
+
+//checkout
+Route::post('checkout', [App\Http\Controllers\ProductController::class, 'checkoutStore'])->name('checkoutStore');
+
+
+//contact
+Route::get('contact', [ContactController::class, 'contact'])->name('contact');
+Route::post('contact', [ContactController::class, 'contactStore'])->name('contactStore');
 
 //login routes
 Route::get('login', [AuthController::class,'login'])->name('login');
@@ -98,6 +122,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
 
     });
 
+
+    //message manage group route , view like admin.pages.message
+    Route::group(['prefix' => 'message', 'as' => 'message.'], function () {
+
+        Route::get('/',[App\Http\Controllers\ContactController::class, 'index'])->name('messageHome');
+        Route::get('view/{id}',  [ App\Http\Controllers\ContactController::class, 'view'])->name('view');
+        //delete movie
+        Route::get('delete/{id}',  [App\Http\Controllers\ContactController::class, 'delete'] )->name('delete');
+
+    });
+
     
     
 
@@ -124,7 +159,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
 Route::get('product/{slug}', function ($slug) {
 
     $product = Products::where('slug', $slug)->first();
-    return view('home.single', compact('product', 'slug'));
+
+    $products = Products::orderBy('id', 'desc')->paginate(5);
+
+    return view('home.single', compact('product', 'slug', 'products'));
 
 })->name('product');
 

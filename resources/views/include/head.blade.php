@@ -3,20 +3,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="theme-color" content="" />
-    <link rel="canonical" href="https://qualitifashion.com/" />
+    <link rel="canonical" href="https://Auramansfashion.com/" />
     <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin />
     <title>
-        Qualiti Fashion
+        {{get_option('sitename','')}} Fashion
     </title>
 
-    <meta property="og:site_name" content="Qualiti Fashion" />
-    <meta property="og:url" content="https://qualitifashion.com/" />
-    <meta property="og:title" content="Qualiti Fashion" />
+    {{-- crf --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <meta property="og:site_name" content="Auramans Fashion" />
+    <meta property="og:url" content="https://Auramansfashion.com/" />
+    <meta property="og:title" content="Auramans Fashion" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="Qualiti Fashion" />
+    <meta property="og:description" content="Auramans Fashion" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Qualiti Fashion" />
-    <meta name="twitter:description" content="Qualiti Fashion" />
+    <meta name="twitter:title" content="Auramans Fashion" />
+    <meta name="twitter:description" content="Auramans Fashion" />
 
     <script src="{{ asset('css/constants.js?v=132983761750457495441739714001')}}" defer="defer"></script>
     <script src="{{ asset('css/pubsub.js?v=158357773527763999511739714003')}}" defer="defer"></script>
@@ -30,18 +33,7 @@
     </script>
     <meta id="shopify-digital-wallet" name="shopify-digital-wallet" content="/68175364233/digital_wallets/dialog" />
     <script async="async" src="/checkouts/internal/preloads.js?locale=en-BD"></script>
-    <script id="shopify-features" type="application/json">
-        {
-            "accessToken": "0641da02ba9676af07509dd8dc4cc289",
-            "betas": ["rich-media-storefront-analytics"],
-            "domain": "qualitifashion.com",
-            "predictiveSearch": true,
-            "shopId": 68175364233,
-            "smart_payment_buttons_url": "https:\/\/qualitifashion.com\/cdn\/shopifycloud\/payment-sheet\/assets\/latest\/spb.en.js",
-            "dynamic_checkout_cart_url": "https:\/\/qualitifashion.com\/cdn\/shopifycloud\/payment-sheet\/assets\/latest\/dynamic-checkout-cart.en.js",
-            "locale": "en"
-        }
-    </script>
+
     <script>
         var Shopify = Shopify || {};
         Shopify.shop = "sxhnwm-di.myshopify.com";
@@ -51,7 +43,7 @@
         Shopify.theme = { name: "Dawn", id: 140509479049, schema_name: "Dawn", schema_version: "15.2.0", theme_store_id: 887, role: "main" };
         Shopify.theme.handle = "null";
         Shopify.theme.style = { id: null, handle: null };
-        Shopify.cdnHost = "qualitifashion.com/cdn";
+        Shopify.cdnHost = "Auramansfashion.com/cdn";
         Shopify.routes = Shopify.routes || {};
         Shopify.routes.root = "/";
     </script>
@@ -77,7 +69,7 @@
         { "pageType": "index" }
     </script>
     <script id="__st">
-        var __st = { a: 68175364233, offset: 21600, reqid: "f53f4a90-e96a-4e4d-b480-4849c780949e-1741372492", pageurl: "qualitifashion.com\/", t: "prospect", u: "8c444ff29c17", cid: 7844388765833, p: "home" };
+        var __st = { a: 68175364233, offset: 21600, reqid: "f53f4a90-e96a-4e4d-b480-4849c780949e-1741372492", pageurl: "Auramansfashion.com\/", t: "prospect", u: "8c444ff29c17", cid: 7844388765833, p: "home" };
     </script>
     <script>
         window.ShopifyPaypalV4VisibilityTracking = true;
@@ -249,7 +241,7 @@
         integrity="sha256-EGCDRYTvIEOXsReXgqGwkAR+5Dl8tickSrieA/ZcQwc="
         data-source-attribution="shopify.loadfeatures"
         defer="defer"
-        src="//qualitifashion.com/cdn/shopifycloud/shopify/assets/storefront/load_feature-1060834584ef204397b1179782a1b090047ee4397cb627244ab89e03f65c4307.js"
+        src="//Auramansfashion.com/cdn/shopifycloud/shopify/assets/storefront/load_feature-1060834584ef204397b1179782a1b090047ee4397cb627244ab89e03f65c4307.js"
         crossorigin="anonymous"
     ></script>
     <script data-source-attribution="shopify.dynamic_checkout.dynamic.init">
@@ -259,7 +251,7 @@
             init: function () {
                 window.Shopify.PaymentButton.init = function () {};
                 var t = document.createElement("script");
-                (t.src = "https://qualitifashion.com/cdn/shopifycloud/portable-wallets/latest/portable-wallets.en.js"), (t.type = "module"), document.head.appendChild(t);
+                (t.src = "https://Auramansfashion.com/cdn/shopifycloud/portable-wallets/latest/portable-wallets.en.js"), (t.type = "module"), document.head.appendChild(t);
             },
         };
     </script>
@@ -289,7 +281,7 @@
             }
         });
     </script>
-    <script id="sections-script" data-sections="header" defer="defer" src="//qualitifashion.com/cdn/shop/t/1/compiled_assets/scripts.js?9"></script>
+    <script id="sections-script" data-sections="header" defer="defer" src="//Auramansfashion.com/cdn/shop/t/1/compiled_assets/scripts.js?9"></script>
     <script>
         window.performance && window.performance.mark && window.performance.mark("shopify.content_for_header.end");
     </script>
@@ -300,9 +292,9 @@
             font-weight: 400;
             font-style: normal;
             font-display: swap;
-            src: url("//qualitifashion.com/cdn/fonts/assistant/assistant_n4.bcd3d09dcb631dec5544b8fb7b154ff234a44630.woff2?h1=c3hobndtLWRpLmFjY291bnQubXlzaG9waWZ5LmNvbQ&h2=c2hhaGluc2Fya2FyLmNvbQ&h3=cXVhbGl0aWZhc2hpb24uY29t&hmac=4dfa1d5e96947b8f579a8420c798b87fb183d086841a305c2a61a04c5a65bc01")
+            src: url("//Auramansfashion.com/cdn/fonts/assistant/assistant_n4.bcd3d09dcb631dec5544b8fb7b154ff234a44630.woff2?h1=c3hobndtLWRpLmFjY291bnQubXlzaG9waWZ5LmNvbQ&h2=c2hhaGluc2Fya2FyLmNvbQ&h3=cXVhbGl0aWZhc2hpb24uY29t&hmac=4dfa1d5e96947b8f579a8420c798b87fb183d086841a305c2a61a04c5a65bc01")
                     format("woff2"),
-                url("//qualitifashion.com/cdn/fonts/assistant/assistant_n4.a2d012304becc2a26f1ded1acc136fcab85c9afd.woff?h1=c3hobndtLWRpLmFjY291bnQubXlzaG9waWZ5LmNvbQ&h2=c2hhaGluc2Fya2FyLmNvbQ&h3=cXVhbGl0aWZhc2hpb24uY29t&hmac=92281d7d733b0f96fa99f4452c4f400b723d23ea94253dd52802c0a7c420db5b")
+                url("//Auramansfashion.com/cdn/fonts/assistant/assistant_n4.a2d012304becc2a26f1ded1acc136fcab85c9afd.woff?h1=c3hobndtLWRpLmFjY291bnQubXlzaG9waWZ5LmNvbQ&h2=c2hhaGluc2Fya2FyLmNvbQ&h3=cXVhbGl0aWZhc2hpb24uY29t&hmac=92281d7d733b0f96fa99f4452c4f400b723d23ea94253dd52802c0a7c420db5b")
                     format("woff");
         }
 
@@ -311,9 +303,9 @@
             font-weight: 700;
             font-style: normal;
             font-display: swap;
-            src: url("//qualitifashion.com/cdn/fonts/assistant/assistant_n7.3335c7bdaddf2501ddab87cdbd9be98f3870e10d.woff2?h1=c3hobndtLWRpLmFjY291bnQubXlzaG9waWZ5LmNvbQ&h2=c2hhaGluc2Fya2FyLmNvbQ&h3=cXVhbGl0aWZhc2hpb24uY29t&hmac=229db67991642f55ffeef969bfe63d7d5ec5e196f326910960b28cd50158b671")
+            src: url("//Auramansfashion.com/cdn/fonts/assistant/assistant_n7.3335c7bdaddf2501ddab87cdbd9be98f3870e10d.woff2?h1=c3hobndtLWRpLmFjY291bnQubXlzaG9waWZ5LmNvbQ&h2=c2hhaGluc2Fya2FyLmNvbQ&h3=cXVhbGl0aWZhc2hpb24uY29t&hmac=229db67991642f55ffeef969bfe63d7d5ec5e196f326910960b28cd50158b671")
                     format("woff2"),
-                url("//qualitifashion.com/cdn/fonts/assistant/assistant_n7.7c85f5c5cc1555de92cc7ef2790ee3cffe5237f5.woff?h1=c3hobndtLWRpLmFjY291bnQubXlzaG9waWZ5LmNvbQ&h2=c2hhaGluc2Fya2FyLmNvbQ&h3=cXVhbGl0aWZhc2hpb24uY29t&hmac=e42ce1b92d3f41012239b021e8e594460bc9f895e0c2c0f36d28f30784f825eb")
+                url("//Auramansfashion.com/cdn/fonts/assistant/assistant_n7.7c85f5c5cc1555de92cc7ef2790ee3cffe5237f5.woff?h1=c3hobndtLWRpLmFjY291bnQubXlzaG9waWZ5LmNvbQ&h2=c2hhaGluc2Fya2FyLmNvbQ&h3=cXVhbGl0aWZhc2hpb24uY29t&hmac=e42ce1b92d3f41012239b021e8e594460bc9f895e0c2c0f36d28f30784f825eb")
                     format("woff");
         }
 
@@ -322,9 +314,9 @@
             font-weight: 400;
             font-style: normal;
             font-display: swap;
-            src: url("//qualitifashion.com/cdn/fonts/assistant/assistant_n4.bcd3d09dcb631dec5544b8fb7b154ff234a44630.woff2?h1=c3hobndtLWRpLmFjY291bnQubXlzaG9waWZ5LmNvbQ&h2=c2hhaGluc2Fya2FyLmNvbQ&h3=cXVhbGl0aWZhc2hpb24uY29t&hmac=4dfa1d5e96947b8f579a8420c798b87fb183d086841a305c2a61a04c5a65bc01")
+            src: url("//Auramansfashion.com/cdn/fonts/assistant/assistant_n4.bcd3d09dcb631dec5544b8fb7b154ff234a44630.woff2?h1=c3hobndtLWRpLmFjY291bnQubXlzaG9waWZ5LmNvbQ&h2=c2hhaGluc2Fya2FyLmNvbQ&h3=cXVhbGl0aWZhc2hpb24uY29t&hmac=4dfa1d5e96947b8f579a8420c798b87fb183d086841a305c2a61a04c5a65bc01")
                     format("woff2"),
-                url("//qualitifashion.com/cdn/fonts/assistant/assistant_n4.a2d012304becc2a26f1ded1acc136fcab85c9afd.woff?h1=c3hobndtLWRpLmFjY291bnQubXlzaG9waWZ5LmNvbQ&h2=c2hhaGluc2Fya2FyLmNvbQ&h3=cXVhbGl0aWZhc2hpb24uY29t&hmac=92281d7d733b0f96fa99f4452c4f400b723d23ea94253dd52802c0a7c420db5b")
+                url("//Auramansfashion.com/cdn/fonts/assistant/assistant_n4.a2d012304becc2a26f1ded1acc136fcab85c9afd.woff?h1=c3hobndtLWRpLmFjY291bnQubXlzaG9waWZ5LmNvbQ&h2=c2hhaGluc2Fya2FyLmNvbQ&h3=cXVhbGl0aWZhc2hpb24uY29t&hmac=92281d7d733b0f96fa99f4452c4f400b723d23ea94253dd52802c0a7c420db5b")
                     format("woff");
         }
 
@@ -595,7 +587,7 @@
     <link
         rel="preload"
         as="font"
-        href="//qualitifashion.com/cdn/fonts/assistant/assistant_n4.bcd3d09dcb631dec5544b8fb7b154ff234a44630.woff2?h1=c3hobndtLWRpLmFjY291bnQubXlzaG9waWZ5LmNvbQ&h2=c2hhaGluc2Fya2FyLmNvbQ&h3=cXVhbGl0aWZhc2hpb24uY29t&hmac=4dfa1d5e96947b8f579a8420c798b87fb183d086841a305c2a61a04c5a65bc01"
+        href="//Auramansfashion.com/cdn/fonts/assistant/assistant_n4.bcd3d09dcb631dec5544b8fb7b154ff234a44630.woff2?h1=c3hobndtLWRpLmFjY291bnQubXlzaG9waWZ5LmNvbQ&h2=c2hhaGluc2Fya2FyLmNvbQ&h3=cXVhbGl0aWZhc2hpb24uY29t&hmac=4dfa1d5e96947b8f579a8420c798b87fb183d086841a305c2a61a04c5a65bc01"
         type="font/woff2"
         crossorigin
     />
@@ -603,7 +595,7 @@
     <link
         rel="preload"
         as="font"
-        href="//qualitifashion.com/cdn/fonts/assistant/assistant_n4.bcd3d09dcb631dec5544b8fb7b154ff234a44630.woff2?h1=c3hobndtLWRpLmFjY291bnQubXlzaG9waWZ5LmNvbQ&h2=c2hhaGluc2Fya2FyLmNvbQ&h3=cXVhbGl0aWZhc2hpb24uY29t&hmac=4dfa1d5e96947b8f579a8420c798b87fb183d086841a305c2a61a04c5a65bc01"
+        href="//Auramansfashion.com/cdn/fonts/assistant/assistant_n4.bcd3d09dcb631dec5544b8fb7b154ff234a44630.woff2?h1=c3hobndtLWRpLmFjY291bnQubXlzaG9waWZ5LmNvbQ&h2=c2hhaGluc2Fya2FyLmNvbQ&h3=cXVhbGl0aWZhc2hpb24uY29t&hmac=4dfa1d5e96947b8f579a8420c798b87fb183d086841a305c2a61a04c5a65bc01"
         type="font/woff2"
         crossorigin
     />
@@ -751,7 +743,7 @@
         })(
             {
                 shopId: 68175364233,
-                storefrontBaseUrl: "https://qualitifashion.com",
+                storefrontBaseUrl: "https://Auramansfashion.com",
                 extensionsBaseUrl: "https://extensions.shopifycdn.com/cdn/shopifycloud/web-pixels-manager",
                 surface: "storefront-renderer",
                 enabledBetaFlags: ["6a396365"],
@@ -772,7 +764,7 @@
                 isMerchantRequest: false,
                 effectiveTopLevelDomain: "",
                 initData: {
-                    shop: { name: "Qualiti Fashion", paymentSettings: { currencyCode: "BDT" }, myshopifyDomain: "sxhnwm-di.myshopify.com", countryCode: "BD", storefrontUrl: "https:\/\/qualitifashion.com" },
+                    shop: { name: "Auramans Fashion", paymentSettings: { currencyCode: "BDT" }, myshopifyDomain: "sxhnwm-di.myshopify.com", countryCode: "BD", storefrontUrl: "https:\/\/Auramansfashion.com" },
                     customer: { id: "7844388765833", email: "tennem@priyomail.net", firstName: null, lastName: null, ordersCount: 0, phone: null },
                     cart: {
                         cost: { totalAmount: { amount: 1150.0, currencyCode: "BDT" } },
@@ -783,7 +775,7 @@
                                     price: { amount: 1150.0, currencyCode: "BDT" },
                                     product: { title: "China Lacra Stitch Fabric", vendor: "Shahin Sarkar", id: "8006034456713", untranslatedTitle: "China Lacra Stitch Fabric", url: "\/products\/china-lacra-stitch-fabric", type: "" },
                                     id: "43379767181449",
-                                    image: { src: "\/\/qualitifashion.com\/cdn\/shop\/files\/2x.jpg?v=1740077515" },
+                                    image: { src: "\/\/Auramansfashion.com\/cdn\/shop\/files\/2x.jpg?v=1740077515" },
                                     sku: "",
                                     title: "L \/ Solid Silver",
                                     untranslatedTitle: "L \/ Solid Silver",
@@ -803,7 +795,7 @@
             function pageEvents(webPixelsManagerAPI) {
                 webPixelsManagerAPI.publish("page_viewed", {});
             },
-            "https://qualitifashion.com/cdn",
+            "https://Auramansfashion.com/cdn",
             "09e2685f32fbaed7c86bd22a538a6adf8fb247c0",
             "2aeb0b9aw97b8b9c7p85cdc250me813a410",
             { modern: "", legacy: "" }
@@ -926,15 +918,15 @@
                             theme_id: 140509479049,
                             app_name: "storefront",
                             context_url: window.location.href,
-                            source_url: "//qualitifashion.com/cdn/s/trekkie.storefront.ee00ae5d5f7902c457139393886b62864391d5ea.min.js",
+                            source_url: "//Auramansfashion.com/cdn/s/trekkie.storefront.ee00ae5d5f7902c457139393886b62864391d5ea.min.js",
                         });
                     };
                     scriptFallback.async = true;
-                    scriptFallback.src = "//qualitifashion.com/cdn/s/trekkie.storefront.ee00ae5d5f7902c457139393886b62864391d5ea.min.js";
+                    scriptFallback.src = "//Auramansfashion.com/cdn/s/trekkie.storefront.ee00ae5d5f7902c457139393886b62864391d5ea.min.js";
                     first.parentNode.insertBefore(scriptFallback, first);
                 };
                 script.async = true;
-                script.src = "//qualitifashion.com/cdn/s/trekkie.storefront.ee00ae5d5f7902c457139393886b62864391d5ea.min.js";
+                script.src = "//Auramansfashion.com/cdn/s/trekkie.storefront.ee00ae5d5f7902c457139393886b62864391d5ea.min.js";
                 first.parentNode.insertBefore(script, first);
             };
             trekkie.load({
@@ -974,13 +966,13 @@
 
             var eventsListenerScript = document.createElement("script");
             eventsListenerScript.async = true;
-            eventsListenerScript.src = "//qualitifashion.com/cdn/shopifycloud/shopify/assets/shop_events_listener-bbbf3223c550be0dd72914a2fa06aaa88eb8943e96f9ea31fb63e7e27e0f97f4.js";
+            eventsListenerScript.src = "//Auramansfashion.com/cdn/shopifycloud/shopify/assets/shop_events_listener-bbbf3223c550be0dd72914a2fa06aaa88eb8943e96f9ea31fb63e7e27e0f97f4.js";
             document.getElementsByTagName("head")[0].appendChild(eventsListenerScript);
         })();
     </script>
     <script
         defer
-        src="https://qualitifashion.com/cdn/shopifycloud/perf-kit/shopify-perf-kit-1.4.0.min.js"
+        src="https://Auramansfashion.com/cdn/shopifycloud/perf-kit/shopify-perf-kit-1.4.0.min.js"
         data-application="storefront-renderer"
         data-shop-id="68175364233"
         data-render-region="gcp-us-east1"

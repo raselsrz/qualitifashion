@@ -43,23 +43,54 @@
                         <input type="text" name="name" class="form-control" id="name" value="{{$orders->address}}" required>
                     </div>
 
-                    {{-- total price --}}
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Total Price</label>
-                        <input type="text" name="name" class="form-control" id="name" value="{{$orders->total}}" required>
-                    </div>
+                   
 
-                    {{-- sub total price --}}
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Sub Total Price</label>
-                        <input type="text" name="name" class="form-control" id="name" value="{{$orders->subtotal}}" required>
-                    </div>
 
                     {{-- product list  --}}
                     <div class="mb-3">
                         <label for="name" class="form-label fw-bold">Product List</label>
                         <div class="row">
                             @foreach($products as $product)
+
+                            {{-- name --}}
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" name="name" class="form-control" id="name" value="{{$product->name}}" required>
+                            </div>
+
+                            {{-- color --}}
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Color</label>
+                                <input type="text" name="name" class="form-control" id="name" value="{{$product->color}}" required>
+                            </div>
+
+                            {{-- size --}}
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Size</label>
+                                <input type="text" name="name" class="form-control" id="name" value="{{$product->size}}" required>
+                            </div>
+
+                            {{-- price --}}
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Price</label>
+                                <input type="text" name="name" class="form-control" id="name" value="{{$product->price}}" required>
+                            </div>
+
+                            {{-- product quantity --}}
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Quantity</label>
+                                <input type="text" name="name" class="form-control" id="name" value="{{$product->quantity}}" required>
+                            </div>
+
+                            {{-- total price --}}
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Total Price</label>
+                                <input type="text" name="name" class="form-control" id="name" value="{{$orders->total}}" required>
+                            </div>
+
+
+
+
                             <div class="col-md-4 mt-2">
                                 <div class="card shadow-sm">
                                     <img src="{{ asset('images/'.$product->image) }}" class="card-img-top" alt="{{ $product->name }}" style="height: 150px; object-fit: cover;">
